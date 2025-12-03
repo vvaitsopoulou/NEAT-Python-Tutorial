@@ -7,6 +7,7 @@ fitness_criterion     = max
 fitness_threshold     = 200
 pop_size              = 250
 reset_on_extinction   = 0
+no_fitness_termination = False
 
 [DefaultGenome]
 num_inputs              = 4
@@ -26,6 +27,9 @@ activation_mutate_rate  = 0.0
 aggregation_default     = sum
 aggregation_options     = sum
 aggregation_mutate_rate = 0.0
+single_structural_mutation = false
+structural_mutation_surer = default
+bias_init_type = gaussian
 bias_init_mean          = 0.0
 bias_init_stdev         = 1.0
 bias_replace_rate       = 0.1
@@ -33,6 +37,7 @@ bias_mutate_rate        = 0.7
 bias_mutate_power       = 0.5
 bias_max_value          = 30.0
 bias_min_value          = -30.0
+response_init_type = gaussian
 response_init_mean      = 1.0
 response_init_stdev     = 0.0
 response_replace_rate   = 0.0
@@ -43,12 +48,15 @@ response_min_value      = -30.0
 
 weight_max_value        = 30
 weight_min_value        = -30
+weight_init_type = gaussian
 weight_init_mean        = 0.0
 weight_init_stdev       = 1.0
 weight_mutate_rate      = 0.8
 weight_replace_rate     = 0.1
 weight_mutate_power     = 0.5
 enabled_default         = True
+enabled_rate_to_true_add = 0.0
+enabled_rate_to_false_add = 0.0
 enabled_mutate_rate     = 0.01
 
 [DefaultSpeciesSet]
@@ -57,8 +65,10 @@ compatibility_threshold = 3.0
 [DefaultStagnation]
 species_fitness_func = max
 max_stagnation  = 50
+species_elitism = 1
 
 [DefaultReproduction]
 elitism            = 2
 survival_threshold = 0.2
+min_species_size = 1
 
